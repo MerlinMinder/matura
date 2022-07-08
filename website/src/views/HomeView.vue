@@ -23,7 +23,7 @@
     </div>
     <div id="timeline">
       <p>Project timeline as of 08.07.2022:</p>
-      <p>11.07.2022 - 21.08.2022 Idea gathering mostly focused on design</p>
+      <p>11.07.2022 - 21.08.2022 Idea gathering focused on design</p>
       <p>22.08.2022 - 11.09.2022 Designing app on Figma</p>
       <p>12.09.2022 - 23.10.2022 Programming the UI</p>
       <p>24.10.2022 - 13.11.2022 Programming the functionalaties</p>
@@ -32,13 +32,13 @@
     </div>
     <div id="utensils">
       <p>The technologies used in the project:</p>
-      <p>Figma (design)</p>
-      <p>VS Code (IDE)</p>
-      <p>Firebase (website hosting)</p>
-      <p>Vue.js (website framework)</p>
-      <p>React Native (App framework)</p>
+      <p>Figma (Design)</p>
+      <p>VS Code (Code Editor)</p>
+      <p>Firebase (Website Hosting)</p>
+      <p>Vue.js (Website Framework)</p>
+      <p>React Native (App Framework)</p>
       <p>Google (Research)</p>
-      <p>Github (Code sharing)</p>
+      <p>Github (Code Sharing)</p>
     </div>
   </div>
 </template>
@@ -55,5 +55,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+p {
+  margin-bottom: 10px;
+  max-width: 80vw;
 }
 </style>

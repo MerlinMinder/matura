@@ -48,6 +48,15 @@
 <style lang="scss" scoped>
 .container {
   width: "100%";
+  padding: 0vw 10vw;
+}
+
+h1 {
+  font-size: calc(10px + 10vh);
+}
+
+div {
+  margin-bottom: 5vh;
 }
 
 #title {

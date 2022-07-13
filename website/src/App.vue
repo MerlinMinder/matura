@@ -10,6 +10,7 @@ import { RouterView } from "vue-router";
 * {
   margin: 0;
   padding: 0;
-
+  font-family: "Work Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial,
+    sans-serif;
 }
 </style>

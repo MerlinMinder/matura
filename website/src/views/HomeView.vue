@@ -53,8 +53,8 @@
 
 h1 {
   font-size: calc(20px + 6vw);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-weight: 1000;
+
+  font-weight: 800;
   background: -webkit-linear-gradient(
     45deg,
     rgb(116, 220, 255),

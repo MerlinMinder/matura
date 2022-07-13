@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div id="title">
-      <h1>PROGRESSFIT</h1>
+      <div id="main-title">
+        <h1>PROGRESS</h1>
+        <h1>FIT</h1>
+      </div>
       <h2>Workout Progression App</h2>
       <h3>Matura Work 2022</h3>
       <h4>By Merlin Minder 3eW</h4>
@@ -51,9 +54,14 @@
   padding: 0vw 10vw;
 }
 
-h1 {
-  font-size: calc(20px + 6vw);
+#main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+h1 {
+  font-size: calc(30px + 4vw);
   font-weight: 800;
   background: -webkit-linear-gradient(
     45deg,

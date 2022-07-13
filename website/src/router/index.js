@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import AdminViewVue from "../views/AdminView.vue";
 import HomeViewVue from "../views/HomeView.vue";
 
 const router = createRouter({
@@ -9,6 +10,12 @@ const router = createRouter({
       name: "Home",
       component: HomeViewVue,
       meta: { title: "Home" },
+    },
+    {
+      path: "/admin",
+      name: "Admin",
+      component: AdminViewVue,
+      meta: { title: "Admin" },
     },
   ],
 });

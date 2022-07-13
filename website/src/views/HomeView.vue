@@ -52,7 +52,16 @@
 }
 
 h1 {
-  font-size: calc(10px + 10vh);
+  font-size: calc(20px + 6vw);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 1000;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(116, 220, 255),
+    rgb(255, 168, 17)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 div {

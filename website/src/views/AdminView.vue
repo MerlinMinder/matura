@@ -1,15 +1,15 @@
 <template>
-  <ul>
+  <ul v-if="currentuid != adminuid">
     <input type="email" v-model="email" placeholder="E-Mail" />
     <input type="password" v-model="password" placeholder="Password" />
     <button @click="login">Login</button>
   </ul>
-  <div v-if="currentuid == adminuid">
+  <div id="editor" v-if="currentuid == adminuid">
     <editor
       api-key="jsvlfar0ke1dnz3qs8fab25fyog6zo4vrwgfc5hwidmle72z"
       :init="{
-        height: 200,
-        width: 200,
+        height: height / 2,
+        width: width * 0.8,
         menubar: true,
         plugins: ['image', 'code', 'link'],
         skin: 'oxide-dark',
@@ -33,6 +33,9 @@ const password = ref("");
 const adminuid = ref("");
 const currentuid = ref("");
 const content = ref("");
+
+const height = window.innerHeight;
+const width = window.innerWidth;
 
 onMounted(async () => {
   console.log(auth.currentUser);
@@ -65,5 +68,10 @@ ul {
   button {
     margin: 5px;
   }
+}
+
+#editor {
+  display: flex;
+  justify-content: center;
 }
 </style>

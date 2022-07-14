@@ -4,23 +4,32 @@
     <input type="password" v-model="password" placeholder="Password" />
     <button @click="login">Login</button>
   </ul>
+  <div v-if="currentuid == adminuid">{{ adminuid }}</div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { db } from "../firebase/firebaseinit";
 import { auth } from "../firebase/firebaseinit";
+import { getDoc, doc } from "@firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const email = ref("");
 const password = ref("");
+const adminuid = ref("");
+const currentuid = ref("");
 
-onMounted(() => {});
+onMounted(async () => {
+  console.log(auth.currentUser);
+  const datadoc = await getDoc(doc(db, "admin", "user"));
+  adminuid.value = datadoc.data().uid;
+});
 
 const login = async () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
     .then(() => {
       console.log(auth.currentUser);
+      currentuid.value = auth.currentUser.uid;
     })
     .catch((err) => {
       console.log(err);

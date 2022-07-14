@@ -4,11 +4,25 @@
     <input type="password" v-model="password" placeholder="Password" />
     <button @click="login">Login</button>
   </ul>
-  <div v-if="currentuid == adminuid"></div>
+  <div v-if="currentuid == adminuid">
+    <editor
+      api-key="jsvlfar0ke1dnz3qs8fab25fyog6zo4vrwgfc5hwidmle72z"
+      :init="{
+        height: 200,
+        width: 200,
+        menubar: true,
+        plugins: ['image', 'code', 'link'],
+        skin: 'oxide-dark',
+        statusbar: false,
+      }"
+      v-model="content"
+    />
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
+import Editor from "@tinymce/tinymce-vue";
 import { db } from "../firebase/firebaseinit";
 import { auth } from "../firebase/firebaseinit";
 import { getDoc, doc } from "@firebase/firestore";
@@ -18,6 +32,7 @@ const email = ref("");
 const password = ref("");
 const adminuid = ref("");
 const currentuid = ref("");
+const content = ref("");
 
 onMounted(async () => {
   console.log(auth.currentUser);

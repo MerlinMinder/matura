@@ -4,7 +4,7 @@
     <input type="password" v-model="password" placeholder="Password" />
     <button @click="login">Login</button>
   </ul>
-  <div v-if="currentuid == adminuid">{{ adminuid }}</div>
+  <div v-if="currentuid == adminuid"></div>
 </template>
 
 <script setup>

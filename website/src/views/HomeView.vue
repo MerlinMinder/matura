@@ -2,7 +2,7 @@
   <div class="container">
     <div id="title">
       <div id="main-title">
-        <h1>PROGRESS</h1>
+        <h1 id="difffont">PROGRESS</h1>
         <h1>FIT</h1>
       </div>
       <h2>Workout Progression App</h2>
@@ -60,14 +60,15 @@
   justify-content: center;
 }
 
+#difffont {
+  font-weight: 400;
+}
+
 h1 {
   font-size: calc(30px + 4vw);
-  font-weight: 800;
-  background: -webkit-linear-gradient(
-    45deg,
-    rgb(116, 220, 255),
-    rgb(255, 168, 17)
-  );
+  font-style: "proxima nova", sans-serif;
+  font-weight: 700;
+  background: linear-gradient(45deg, rgb(116, 220, 255), rgb(255, 168, 17));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

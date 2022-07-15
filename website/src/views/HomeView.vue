@@ -43,10 +43,42 @@
       <p>Google (Research)</p>
       <p>Github (Code Sharing)</p>
     </div>
+    <div>
+      Total workingtime:
+      {{ workingtime }}
+    </div>
+    <div id="posts">
+      <p>Posts</p>
+      <div v-for="post in posts">
+        <div id="post">
+          <div>{{ Date(post.submittime).slice(0, 15) }}</div>
+          <div v-html="post.data"></div>
+          <p>worktime</p>
+          <p>{{ post.worktime }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { collection, getDocs } from "@firebase/firestore";
+import { onMounted, ref } from "vue";
+import { db } from "../firebase/firebaseinit";
+
+const posts = ref([]);
+const workingtime = ref();
+
+onMounted(async () => {
+  const postsdata = await getDocs(collection(db, "posts"));
+  postsdata.forEach((doc) => {
+    posts.value.push(doc.data());
+  });
+  workingtime.value = posts.value
+    .map((post) => post.worktime)
+    .reduce((a, b) => a + b, 0);
+});
+</script>
 
 <style lang="scss" scoped>
 .container {
@@ -75,6 +107,10 @@ h1 {
 
 div {
   margin-bottom: 5vh;
+}
+
+#post {
+  border: 2px solid black;
 }
 
 #title {

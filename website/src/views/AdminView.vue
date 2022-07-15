@@ -5,11 +5,12 @@
     <button @click="login">Login</button>
   </ul>
   <div id="editor" v-if="currentuid == adminuid">
+    <input type="number" v-model="worktime" placeholder="120 (2h)" />
     <editor
       api-key="jsvlfar0ke1dnz3qs8fab25fyog6zo4vrwgfc5hwidmle72z"
       :init="{
-        height: height / 2,
-        width: width * 0.8,
+        height: height * 0.9,
+        width: width * 0.7,
         menubar: true,
         plugins: ['image', 'code', 'link'],
         skin: 'oxide-dark',
@@ -17,6 +18,7 @@
       }"
       v-model="content"
     />
+    <button @click="post">Post</button>
   </div>
 </template>
 
@@ -25,13 +27,15 @@ import { ref, onMounted } from "vue";
 import Editor from "@tinymce/tinymce-vue";
 import { db } from "../firebase/firebaseinit";
 import { auth } from "../firebase/firebaseinit";
-import { getDoc, doc } from "@firebase/firestore";
+import { getDoc, doc, setDoc } from "@firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import router from "../router";
 
 const email = ref("");
 const password = ref("");
 const adminuid = ref("");
 const currentuid = ref("");
+const worktime = ref("");
 const content = ref("");
 
 const height = window.innerHeight;
@@ -54,6 +58,17 @@ const login = async () => {
     });
   email.value = "";
   password.value = "";
+};
+
+const post = async () => {
+  await setDoc(
+    doc(db, "posts", String(Date.now())),
+    { data: content.value, worktime: worktime.value, submittime: Date.now() },
+    { merge: true }
+  );
+  content.value = "";
+  worktime.value = "";
+  router.push("/");
 };
 </script>
 

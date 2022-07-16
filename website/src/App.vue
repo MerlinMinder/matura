@@ -12,5 +12,7 @@ import { RouterView } from "vue-router";
   padding: 0;
   font-family: "Work Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial,
     sans-serif;
+  color: white;
+  background-color: #3f3e3e;
 }
 </style>

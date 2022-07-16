@@ -51,7 +51,7 @@
       <p>Posts</p>
       <div v-for="post in posts">
         <div id="post">
-          <div>{{ Date(post.submittime).slice(0, 15) }}</div>
+          <div>{{ String(new Date(post.submittime)).slice(0, 15) }}</div>
           <div v-html="post.data"></div>
           <p>worktime</p>
           <p>{{ post.worktime }}</p>

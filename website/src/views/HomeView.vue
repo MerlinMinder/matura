@@ -67,16 +67,28 @@ import { onMounted, ref } from "vue";
 import { db } from "../firebase/firebaseinit";
 
 const posts = ref([]);
-const workingtime = ref();
+const workingtime = ref({
+  website: 0,
+  design: 0,
+  programming: 0,
+  debugging: 0,
+  posts: 0,
+});
 
 onMounted(async () => {
   const postsdata = await getDocs(collection(db, "posts"));
   postsdata.forEach((doc) => {
     posts.value.push(doc.data());
   });
-  workingtime.value = posts.value
+  posts.value
     .map((post) => post.worktime)
-    .reduce((a, b) => a + b, 0);
+    .forEach((day) => {
+      workingtime.value.website += day.website;
+      workingtime.value.design += day.design;
+      workingtime.value.programming += day.programming;
+      workingtime.value.debugging += day.debugging;
+      workingtime.value.posts += day.posts;
+    });
 });
 </script>
 

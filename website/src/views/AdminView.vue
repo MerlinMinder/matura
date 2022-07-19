@@ -5,7 +5,26 @@
     <button @click="login">Login</button>
   </ul>
   <div id="editor" v-if="currentuid == adminuid">
-    <input type="number" v-model="worktime" placeholder="120 (2h)" />
+    <div id="worktime">
+      <p>Website</p>
+      <input type="number" v-model="worktime.website" placeholder="120 (2h)" />
+      <p>Design</p>
+      <input type="number" v-model="worktime.design" placeholder="120 (2h)" />
+      <p>Programming</p>
+      <input
+        type="number"
+        v-model="worktime.programming"
+        placeholder="120 (2h)"
+      />
+      <p>Debugging</p>
+      <input
+        type="number"
+        v-model="worktime.debugging"
+        placeholder="120 (2h)"
+      />
+      <p>Posts</p>
+      <input type="number" v-model="worktime.posts" placeholder="120 (2h)" />
+    </div>
     <editor
       api-key="jsvlfar0ke1dnz3qs8fab25fyog6zo4vrwgfc5hwidmle72z"
       :init="{
@@ -35,7 +54,13 @@ const email = ref("");
 const password = ref("");
 const adminuid = ref("");
 const currentuid = ref("");
-const worktime = ref("");
+const worktime = ref({
+  website: 0,
+  design: 0,
+  programming: 0,
+  debugging: 0,
+  posts: 0,
+});
 const content = ref("");
 
 const height = window.innerHeight;
@@ -83,6 +108,11 @@ ul {
   button {
     margin: 5px;
   }
+}
+
+#worktime {
+  display: flex;
+  flex-direction: column;
 }
 
 #editor {

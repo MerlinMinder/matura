@@ -26,7 +26,10 @@
     </div>
     <div id="timeline">
       <p>Project timeline as of 08.07.2022:</p>
-      <p>11.07.2022 - 21.08.2022 Idea gathering focused on design</p>
+      <p>
+        11.07.2022 - 21.08.2022 Idea gathering focused on design + website
+        creation
+      </p>
       <p>22.08.2022 - 11.09.2022 Designing app on Figma</p>
       <p>12.09.2022 - 23.10.2022 Programming the UI</p>
       <p>24.10.2022 - 13.11.2022 Programming the functionalities</p>

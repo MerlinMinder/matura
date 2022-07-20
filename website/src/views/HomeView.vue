@@ -78,7 +78,7 @@ const workingtime = ref({
 onMounted(async () => {
   const postsdata = await getDocs(collection(db, "posts"));
   postsdata.forEach((doc) => {
-    posts.value.push(doc.data());
+    posts.value.unshift(doc.data());
   });
   posts.value
     .map((post) => post.worktime)

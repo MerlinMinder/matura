@@ -1,14 +1,20 @@
 <template>
-  <div class="container">
+  <div id="imgtitle">
+    <img
+      src="https://www.forbesindia.com/fbimages/900x600/proportional/jpeg/blog/wp-content/uploads/2021/03/Create-Software_BG.jpg"
+    />
     <div id="title">
       <div id="main-title">
-        <h1 id="difffont">PROGRESS</h1>
-        <h1>FIT</h1>
+        <p id="progress">PROGRESS</p>
+        <p id="progressbehind">PROGRESS</p>
+        <p id="fit">FIT</p>
       </div>
-      <h2>Workout Progression App</h2>
-      <h3>Matura Work 2022</h3>
-      <h4>By Merlin Minder 3eW</h4>
+      <p>Workout Progression App</p>
+      <p>Matura Work 2022</p>
+      <p>By Merlin Minder 3eW</p>
     </div>
+  </div>
+  <div class="container">
     <div id="disposition">
       <p>Disposition:</p>
       <p>
@@ -97,28 +103,8 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .container {
-  width: "100%";
-  padding: 0vw 10vw;
-}
-
-#main-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-#difffont {
-  font-weight: 400;
-}
-
-h1 {
-  font-size: calc(30px + 4vw);
-  font-style: "proxima nova", sans-serif;
-  font-weight: 700;
-  background: linear-gradient(45deg, rgb(116, 220, 255), rgb(255, 168, 17));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  overflow-x: hidden;
+  padding: 10vw;
 }
 
 div {
@@ -129,11 +115,70 @@ div {
   border: 2px solid black;
 }
 
-#title {
+#imgtitle {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  height: 100vh;
+
+  img {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.3;
+    margin: 0;
+  }
+
+  #title {
+    position: absolute;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      background-color: transparent;
+      font-size: 40px;
+      margin-top: 10px;
+    }
+
+    #main-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      background-color: transparent;
+
+      #progress {
+        font-size: calc(30px + 6vw);
+        font-weight: 400;
+        background: linear-gradient(90deg, #74dcff 0%, #ffa811 95.24%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 1;
+      }
+
+      #progressbehind {
+        position: absolute;
+        font-size: calc(30px + 6vw);
+        font-weight: 400;
+        color: transparent;
+        left: 0;
+        z-index: 0;
+        text-shadow: -3px -3px 8px rgba(116, 220, 255, 0.6),
+          3px 3px 8px rgba(255, 168, 17, 0.8);
+      }
+
+      #fit {
+        font-size: calc(30px + 6vw);
+        font-weight: 700;
+        background: linear-gradient(90deg, #74dcff 0%, #ffa811 95.24%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
 }
 
 p {

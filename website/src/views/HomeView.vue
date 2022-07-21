@@ -9,15 +9,15 @@
         <p id="progressbehind">PROGRESS</p>
         <p id="fit">FIT</p>
       </div>
-      <p>Workout Progression App</p>
-      <p>Matura Work 2022</p>
-      <p>By Merlin Minder 3eW</p>
+      <p id="app">Workout Progression App</p>
+      <p id="work">Matura Work 2022</p>
+      <p id="name">By Merlin Minder 3eW</p>
     </div>
   </div>
   <div class="container">
-    <div id="disposition">
-      <p>Disposition:</p>
-      <p>
+    <div id="about">
+      <p id="about-title">About</p>
+      <p id="about-text">
         This Matura Work is a combination of a project and the correlating
         documentation thereof. As seen in the title the project consists of a
         fitness app which will be programmed from scratch. The resulting app and
@@ -27,20 +27,23 @@
         Disclaimer: Everything on this website is still subject to change untill
         the final Deadline.
       </p>
-      <p>The main question I will aim to answer is:</p>
-      <p>How does the process of programming a fitness app look like?</p>
+      <p id="about-ques">The main question I will aim to answer is:</p>
+      <p id="about-objective">
+        How does the process of programming a fitness app look like?
+      </p>
     </div>
     <div id="timeline">
-      <p>Project timeline as of 08.07.2022:</p>
-      <p>
-        11.07.2022 - 21.08.2022 Idea gathering focused on design + website
-        creation
-      </p>
-      <p>22.08.2022 - 11.09.2022 Designing app on Figma</p>
-      <p>12.09.2022 - 23.10.2022 Programming the UI</p>
-      <p>24.10.2022 - 13.11.2022 Programming the functionalities</p>
-      <p>14.11.2022 - 27.11.2022 Debugging and testing</p>
-      <p>28.11.2022 Finalisation of the project</p>
+      <p id="timeline-title">Project timeline as of 21.07.2022</p>
+      <div id="timeline-parts">
+        <p>08.07.2022 Kickoff of the project</p>
+        <p>11.07.2022 - 18.07.2022 Website creation</p>
+        <p>19.07.2022 - 21.08.2022 Design idea gathering + website styling</p>
+        <p>22.08.2022 - 11.09.2022 Designing app on Figma</p>
+        <p>12.09.2022 - 23.10.2022 Programming the UI</p>
+        <p>24.10.2022 - 13.11.2022 Programming the functionalities</p>
+        <p>14.11.2022 - 27.11.2022 Debugging and testing</p>
+        <p>28.11.2022 Finalisation of the project</p>
+      </div>
     </div>
     <div id="utensils">
       <p>The technologies used in the project:</p>
@@ -104,11 +107,7 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .container {
   overflow-x: hidden;
-  padding: 10vw;
-}
-
-div {
-  margin-bottom: 5vh;
+  padding: 0px 10vw;
 }
 
 #post {
@@ -117,7 +116,6 @@ div {
 
 #imgtitle {
   display: flex;
-  align-items: center;
   justify-content: center;
 
   height: 100vh;
@@ -147,7 +145,8 @@ div {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-top: 30vh;
       background-color: transparent;
 
       #progress {
@@ -178,11 +177,65 @@ div {
         -webkit-text-fill-color: transparent;
       }
     }
+    #app {
+      font-size: 50px;
+      margin-bottom: 22vh;
+    }
+    #work {
+      font-size: 35px;
+    }
+    #name {
+      font-size: 25px;
+    }
   }
 }
 
-p {
-  margin-bottom: 10px;
-  max-width: 80vw;
+#about {
+  padding: 10vw 10vw;
+
+  #about-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 5vh;
+  }
+
+  #about-text {
+    padding: 0 10vw;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 10vh;
+  }
+
+  #about-ques {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 8vh;
+  }
+
+  #about-objective {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 1000;
+    background: linear-gradient(90deg, #74dcff 0%, #ffa811 95.24%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10vh;
+  }
+}
+
+#timeline {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  p {
+    margin: 10px;
+  }
+
+  #timeline-title {
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
 }
 </style>

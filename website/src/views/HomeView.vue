@@ -1,8 +1,6 @@
 <template>
   <div id="imgtitle">
-    <img
-      src="https://www.forbesindia.com/fbimages/900x600/proportional/jpeg/blog/wp-content/uploads/2021/03/Create-Software_BG.jpg"
-    />
+    <img src="../assets/coding_background.jpeg" />
     <div id="title">
       <div id="main-title">
         <p id="progress">PROGRESS</p>
@@ -33,7 +31,7 @@
       </p>
     </div>
     <div id="timeline">
-      <p id="timeline-title">Project timeline as of 21.07.2022</p>
+      <p id="timeline-title">Project Timeline as of 21.07.2022</p>
       <div id="timeline-parts">
         <p>08.07.2022 Kickoff of the project</p>
         <p>11.07.2022 - 18.07.2022 Website creation</p>
@@ -117,12 +115,11 @@ onMounted(async () => {
 #imgtitle {
   display: flex;
   justify-content: center;
-
   height: 100vh;
 
   img {
+    object-fit: cover;
     width: 100vw;
-    height: 100vh;
     opacity: 0.3;
     margin: 0;
   }
@@ -195,22 +192,24 @@ onMounted(async () => {
 
   #about-title {
     text-align: center;
-    font-size: 32px;
-    margin-bottom: 5vh;
+    font-size: 38px;
   }
 
   #about-text {
-    padding: 0 10vw;
+    margin: 5vw 8vw;
+    padding: 2vw;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
-    margin-bottom: 10vh;
+    border-radius: 15px;
+    box-shadow: inset -8px -8px 12px rgba(151, 151, 151, 0.5),
+      inset 8px 8px 12px rgba(0, 0, 0, 0.5);
   }
 
   #about-ques {
     text-align: center;
     font-size: 20px;
-    margin-bottom: 8vh;
+    margin: 15vh 0px;
   }
 
   #about-objective {
@@ -220,7 +219,11 @@ onMounted(async () => {
     background: linear-gradient(90deg, #74dcff 0%, #ffa811 95.24%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 10vh;
+    margin: 10vh 0px;
+    padding: 10px;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5),
+      -5px -5px 7px rgba(150, 150, 150, 0.5);
+    border-radius: 12px;
   }
 }
 

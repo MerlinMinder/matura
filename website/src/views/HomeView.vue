@@ -110,6 +110,7 @@ onMounted(async () => {
 
 #post {
   border: 2px solid black;
+  margin: 5vh 2vw;
 }
 
 #imgtitle {
@@ -149,7 +150,11 @@ onMounted(async () => {
       #progress {
         font-size: calc(30px + 6vw);
         font-weight: 400;
-        background: linear-gradient(90deg, #74dcff 0%, #ffa811 95.24%);
+        background: linear-gradient(
+          90deg,
+          rgb(66, 255, 255) 0%,
+          rgb(255, 192, 66) 95.24%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         z-index: 1;
@@ -162,14 +167,14 @@ onMounted(async () => {
         color: transparent;
         left: 0;
         z-index: 0;
-        text-shadow: -3px -3px 8px rgba(116, 220, 255, 0.6),
-          3px 3px 8px rgba(255, 168, 17, 0.8);
+        text-shadow: -3px -3px 8px rgba(66, 255, 255, 0.6),
+          3px 3px 8px rgba(255, 192, 66, 0.8);
       }
 
       #fit {
         font-size: calc(30px + 6vw);
         font-weight: 700;
-        background: linear-gradient(90deg, #74dcff 0%, #ffa811 95.24%);
+        background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -216,7 +221,7 @@ onMounted(async () => {
     text-align: center;
     font-size: 30px;
     font-weight: 1000;
-    background: linear-gradient(90deg, #74dcff 0%, #ffa811 95.24%);
+    background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 10vh 0px;

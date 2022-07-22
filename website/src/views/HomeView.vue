@@ -53,18 +53,20 @@
       <p>Google (Research)</p>
       <p>Github (Code Sharing)</p>
     </div>
-    <div>
+    <div id="worktime">
       Total workingtime:
       {{ workingtime }}
     </div>
     <div id="posts">
-      <p>Posts</p>
+      <p id="post-title">Posts</p>
       <div v-for="post in posts">
         <div id="post">
-          <div>{{ String(new Date(post.submittime)).slice(0, 15) }}</div>
-          <div v-html="post.data"></div>
-          <p>worktime</p>
-          <p>{{ post.worktime }}</p>
+          <div id="post-time">
+            {{ String(new Date(post.submittime)).slice(0, 15) }}
+          </div>
+          <div id="post-body" v-html="post.data"></div>
+          <p id="post-worktext">Worktime</p>
+          <p id="post-worktime">{{ post.worktime }}</p>
         </div>
       </div>
     </div>
@@ -106,11 +108,6 @@ onMounted(async () => {
 .container {
   overflow-x: hidden;
   padding: 0px 10vw;
-}
-
-#post {
-  border: 2px solid black;
-  margin: 5vh 2vw;
 }
 
 #imgtitle {
@@ -244,6 +241,53 @@ onMounted(async () => {
   #timeline-title {
     font-size: 20px;
     margin-bottom: 50px;
+  }
+}
+
+#worktime {
+  margin: 10vh 0;
+}
+
+#posts {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  #post-title {
+    text-align: center;
+    font-size: 38px;
+    margin: 10vh 0;
+    width: fit-content;
+    background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #post {
+    padding: 30px;
+    border-radius: 10px;
+    margin: 10vh 2vw;
+    box-shadow: inset -5px -5px 8px rgba(0, 0, 0, 0.5),
+      inset 5px 5px 8px rgba(150, 150, 150, 0.5), 5px 5px 8px rgba(0, 0, 0, 0.5),
+      -5px -5px 8px rgba(150, 150, 150, 0.5);
+
+    #post-time {
+      margin-bottom: 30px;
+      font-size: 22px;
+    }
+
+    #post-worktext {
+      width: fit-content;
+      font-weight: 800;
+      margin: 20px 0px;
+      background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #post-worktime {
+      margin-bottom: 10px;
+    }
   }
 }
 </style>

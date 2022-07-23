@@ -101,6 +101,7 @@ onMounted(async () => {
       workingtime.value.debugging += day.debugging;
       workingtime.value.posts += day.posts;
     });
+  totaldays.splice(92, 1);
 });
 </script>
 
@@ -242,6 +243,36 @@ onMounted(async () => {
     font-size: 20px;
     margin-bottom: 50px;
   }
+}
+
+#calendar {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10vh;
+
+  #month {
+    border: solid white 1px;
+    width: max-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    #day {
+      height: 30px;
+      width: 30px;
+      margin-right: 1px;
+      border: solid black 1px;
+      background-color: #42ffff;
+    }
+  }
+}
+
+#utensils {
+  margin: 10vh 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 #worktime {

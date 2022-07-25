@@ -47,13 +47,13 @@
     <div id="calendar">
       <div id="month" v-for="month in calendar">
         <div id="day-container" v-for="day in month">
-          <div id="day" :style="{ 'background-color': day.type }">
+          <div
+            id="day"
+            :style="{ 'background-color': day.type, color: day.holiday }"
+          >
             {{ day.day }}
-            <div
-              id="holiday"
-              :style="{ 'background-color': day.holiday }"
-            ></div>
           </div>
+          <!-- <div id="holiday" :style="{ 'background-color': day.holiday }"></div> -->
         </div>
       </div>
     </div>
@@ -103,20 +103,20 @@ const workingtime = ref({
 
 const types = {
   none: "gray",
-  kickoff: "#95FF42",
-  website: "#FB42FF",
-  idea: "#FFB442",
-  design: "#42FFFF",
-  ui: "#42FF55",
-  func: "#424AFF",
-  debug: "#A142FF",
-  finalasiation: "#FF4242",
+  kickoff: "#ff0000",
+  website: "#ffaa00",
+  idea: "#00ff00",
+  design: "#00aaff",
+  ui: "#0000ff",
+  func: "#aa00ff",
+  debug: "#ff00aa",
+  finalasiation: "#ff0000",
   deadline: "black",
 };
 
 const holidays = {
-  normal: "lightgreen",
-  holiday: "orange",
+  normal: "white",
+  holiday: "black",
   trip: "red",
 };
 
@@ -493,6 +493,7 @@ onMounted(async () => {
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
+
     justify-content: flex-start;
     box-shadow: inset 6px 6px 8px rgba(153, 153, 153, 0.5),
       inset -6px -6px 8px rgba(0, 0, 0, 0.5);
@@ -502,18 +503,12 @@ onMounted(async () => {
       width: 30px;
       margin: 1.5px;
       display: flex;
-      flex-direction: column;
-      padding-top: 5px;
+      justify-content: center;
       align-items: center;
+      font-weight: 600;
       border-radius: 5px;
       box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.5),
         inset -2px -2px 3px rgba(230, 230, 230, 0.5);
-
-      #holiday {
-        width: 20px;
-        height: 7px;
-        border-radius: 3px;
-      }
     }
   }
 }

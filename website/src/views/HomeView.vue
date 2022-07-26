@@ -45,6 +45,12 @@
       </div>
     </div>
     <div id="calendar">
+      <p id="july">July</p>
+      <p id="august">August</p>
+      <p id="september">September</p>
+      <p id="october">October</p>
+      <p id="november">November</p>
+      <p id="december">December</p>
       <div id="month" v-for="month in calendar">
         <div id="day-container" v-for="day in month">
           <div
@@ -53,7 +59,6 @@
           >
             {{ day.day }}
           </div>
-          <!-- <div id="holiday" :style="{ 'background-color': day.holiday }"></div> -->
         </div>
       </div>
     </div>
@@ -484,6 +489,34 @@ onMounted(async () => {
   width: 60vw;
   margin-left: 10vw;
   justify-content: space-evenly;
+
+  p {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  #july {
+    left: 29vw;
+  }
+
+  #september {
+    right: 26vw;
+  }
+
+  #october {
+    margin-top: 35vh;
+    left: 28vw;
+  }
+
+  #november {
+    margin-top: 35vh;
+  }
+
+  #december {
+    margin-top: 35vh;
+    right: 26.5vw;
+  }
 
   #month {
     border-radius: 10px;

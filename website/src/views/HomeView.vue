@@ -14,7 +14,7 @@
   </div>
   <div class="container">
     <div id="about">
-      <p id="about-title">About</p>
+      <p id="about-title" class="title">About</p>
       <p id="about-text">
         This Matura Work is a combination of a project and the correlating
         documentation thereof. As seen in the title the project consists of a
@@ -31,7 +31,25 @@
       </p>
     </div>
     <div id="timeline">
-      <p id="timeline-title">Project Timeline as of 25.07.2022</p>
+      <p id="timeline-title" class="title">Project Timeline as of 26.07.2022</p>
+      <div id="calendar">
+        <p id="july">July</p>
+        <p id="august">August</p>
+        <p id="september">September</p>
+        <p id="october">October</p>
+        <p id="november">November</p>
+        <p id="december">December</p>
+        <div id="month" v-for="month in calendar">
+          <div id="day-container" v-for="day in month">
+            <div
+              id="day"
+              :style="{ 'background-color': day.type, color: day.holiday }"
+            >
+              {{ day.day }}
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="timeline-parts">
         <p>08.07.2022 Kickoff of the project</p>
         <p>11.07.2022 - 18.07.2022 Website creation</p>
@@ -42,24 +60,6 @@
         <p>14.11.2022 - 27.11.2022 Debugging and testing</p>
         <p>28.11.2022 Finalisation of the project</p>
         <p>05.12.2022 Official deadline</p>
-      </div>
-    </div>
-    <div id="calendar">
-      <p id="july">July</p>
-      <p id="august">August</p>
-      <p id="september">September</p>
-      <p id="october">October</p>
-      <p id="november">November</p>
-      <p id="december">December</p>
-      <div id="month" v-for="month in calendar">
-        <div id="day-container" v-for="day in month">
-          <div
-            id="day"
-            :style="{ 'background-color': day.type, color: day.holiday }"
-          >
-            {{ day.day }}
-          </div>
-        </div>
       </div>
     </div>
     <div id="utensils">
@@ -77,7 +77,7 @@
       {{ workingtime }}
     </div>
     <div id="posts">
-      <p id="post-title">Posts</p>
+      <p id="post-title" class="title">Posts</p>
       <div v-for="post in posts">
         <div id="post">
           <div id="post-time">
@@ -347,6 +347,15 @@ onMounted(async () => {
   padding: 0px 10vw;
 }
 
+.title {
+  font-size: 38px;
+  background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  width: fit-content;
+}
+
 #imgtitle {
   display: flex;
   justify-content: center;
@@ -429,10 +438,9 @@ onMounted(async () => {
 #about {
   padding: 10vw 10vw;
 
-  #about-title {
-    text-align: center;
-    font-size: 38px;
-  }
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   #about-text {
     margin: 5vw 8vw;
@@ -448,7 +456,7 @@ onMounted(async () => {
   #about-ques {
     text-align: center;
     font-size: 20px;
-    margin: 15vh 0px;
+    margin: 5vh 0px;
   }
 
   #about-objective {
@@ -474,20 +482,20 @@ onMounted(async () => {
   p {
     margin: 10px;
   }
+}
 
-  #timeline-title {
-    font-size: 20px;
-    margin-bottom: 50px;
-  }
+#timeline-title {
+  margin-bottom: 50px;
 }
 
 #calendar {
   display: flex;
   flex-direction: row;
-  margin: 10vh 0;
+  margin-top: 13vh;
+  margin-bottom: 8vh;
   flex-wrap: wrap;
   width: 60vw;
-  margin-left: 10vw;
+
   justify-content: space-evenly;
 
   p {
@@ -497,16 +505,22 @@ onMounted(async () => {
   }
 
   #july {
-    left: 29vw;
+    margin-top: 0;
+    left: 28vw;
+  }
+
+  #august {
+    margin-top: 0;
   }
 
   #september {
+    margin-top: 0;
     right: 26vw;
   }
 
   #october {
     margin-top: 35vh;
-    left: 28vw;
+    left: 27vw;
   }
 
   #november {
@@ -563,13 +577,7 @@ onMounted(async () => {
   flex-direction: column;
 
   #post-title {
-    text-align: center;
-    font-size: 38px;
     margin: 10vh 0;
-    width: fit-content;
-    background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   #post {

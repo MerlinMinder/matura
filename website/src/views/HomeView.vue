@@ -63,7 +63,7 @@
       </div>
     </div>
     <div id="utensils">
-      <p>The technologies used in the project:</p>
+      <p class="title">The technologies used in the project:</p>
       <p>Figma (Design)</p>
       <p>VS Code (Code Editor)</p>
       <p>Firebase (Website Hosting)</p>
@@ -73,8 +73,21 @@
       <p>Github (Code Sharing)</p>
     </div>
     <div id="worktime">
-      Total workingtime:
-      {{ workingtime }}
+      <p class="title" id="worktime-title">Total Workingtime</p>
+      <div id="times">
+        <div id="time" v-for="time in worktime">
+          <div id="time-part">{{ time[1].toUpperCase() }}</div>
+          <div
+            :style="{
+              width: String(time[0]) + 'px',
+              'background-color': '#' + time[0].toString(16).padStart(3, '0'),
+            }"
+            id="time-block"
+          >
+            {{ time[0] }}
+          </div>
+        </div>
+      </div>
     </div>
     <div id="posts">
       <p id="post-title" class="title">Posts</p>
@@ -105,6 +118,7 @@ const workingtime = ref({
   debugging: 0,
   posts: 0,
 });
+const worktime = ref([]);
 
 const types = {
   none: "gray",
@@ -338,6 +352,10 @@ onMounted(async () => {
       workingtime.value.debugging += day.debugging;
       workingtime.value.posts += day.posts;
     });
+  for (let key in workingtime.value) {
+    worktime.value.push([workingtime.value[key], key]);
+  }
+  worktime.value.sort().reverse();
 });
 </script>
 
@@ -354,6 +372,7 @@ onMounted(async () => {
   -webkit-text-fill-color: transparent;
   text-align: center;
   width: fit-content;
+  margin-bottom: 10vh;
 }
 
 #imgtitle {
@@ -437,13 +456,12 @@ onMounted(async () => {
 
 #about {
   padding: 10vw 10vw;
-
   display: flex;
   align-items: center;
   flex-direction: column;
 
   #about-text {
-    margin: 5vw 8vw;
+    margin: 0 8vw;
     padding: 2vw;
     font-size: 18px;
     font-weight: 400;
@@ -456,7 +474,7 @@ onMounted(async () => {
   #about-ques {
     text-align: center;
     font-size: 20px;
-    margin: 5vh 0px;
+    margin: 10vh 0px;
   }
 
   #about-objective {
@@ -466,7 +484,7 @@ onMounted(async () => {
     background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin: 10vh 0px;
+    margin: 5vh 0px;
     padding: 10px;
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5),
       -5px -5px 7px rgba(150, 150, 150, 0.5);
@@ -482,80 +500,78 @@ onMounted(async () => {
   p {
     margin: 10px;
   }
-}
 
-#timeline-title {
-  margin-bottom: 50px;
-}
-
-#calendar {
-  display: flex;
-  flex-direction: row;
-  margin-top: 13vh;
-  margin-bottom: 8vh;
-  flex-wrap: wrap;
-  width: 60vw;
-
-  justify-content: space-evenly;
-
-  p {
-    position: absolute;
-    font-size: 20px;
-    font-weight: 600;
+  #timeline-title {
+    margin-bottom: 50px;
   }
 
-  #july {
-    margin-top: 0;
-    left: 28vw;
-  }
-
-  #august {
-    margin-top: 0;
-  }
-
-  #september {
-    margin-top: 0;
-    right: 26vw;
-  }
-
-  #october {
-    margin-top: 35vh;
-    left: 27vw;
-  }
-
-  #november {
-    margin-top: 35vh;
-  }
-
-  #december {
-    margin-top: 35vh;
-    right: 26.5vw;
-  }
-
-  #month {
-    border-radius: 10px;
-    padding: 20px;
-    margin: 30px 0;
-    width: 235px;
-    height: fit-content;
+  #calendar {
     display: flex;
+    flex-direction: row;
+    margin: 8vh 0;
     flex-wrap: wrap;
+    width: 60vw;
+    justify-content: space-evenly;
 
-    justify-content: flex-start;
-    box-shadow: inset 6px 6px 8px rgba(153, 153, 153, 0.5),
-      inset -6px -6px 8px rgba(0, 0, 0, 0.5);
-
-    #day {
-      height: 30px;
-      width: 30px;
-      margin: 1.5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    p {
+      position: absolute;
+      font-size: 20px;
       font-weight: 600;
-      border-radius: 5px;
-      box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.5),
-        inset -2px -2px 3px rgba(230, 230, 230, 0.5);
+    }
+
+    #july {
+      margin-top: 0;
+      left: 28vw;
+    }
+
+    #august {
+      margin-top: 0;
+    }
+
+    #september {
+      margin-top: 0;
+      right: 26vw;
+    }
+
+    #october {
+      margin-top: 35vh;
+      left: 27vw;
+    }
+
+    #november {
+      margin-top: 35vh;
+    }
+
+    #december {
+      margin-top: 35vh;
+      right: 26.5vw;
+    }
+
+    #month {
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      width: 235px;
+      height: fit-content;
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: flex-start;
+      box-shadow: inset 6px 6px 8px rgba(153, 153, 153, 0.5),
+        inset -6px -6px 8px rgba(0, 0, 0, 0.5);
+
+      #day {
+        height: 30px;
+        width: 30px;
+        margin: 1.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        border-radius: 5px;
+        box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.5),
+          inset -2px -2px 3px rgba(230, 230, 230, 0.5);
+      }
     }
   }
 }
@@ -569,6 +585,33 @@ onMounted(async () => {
 
 #worktime {
   margin: 10vh 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  #worktime-title {
+    margin-top: 5vh;
+    margin-bottom: 15vh;
+  }
+
+  #times {
+    #time {
+      #time-part {
+        margin: 10px 0;
+      }
+
+      #time-block {
+        height: 30px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        border-radius: 10px;
+        box-shadow: inset 4px 4px 6px rgba(153, 153, 153, 0.5),
+          inset -4px -4px 6px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
 }
 
 #posts {
@@ -577,7 +620,8 @@ onMounted(async () => {
   flex-direction: column;
 
   #post-title {
-    margin: 10vh 0;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
   }
 
   #post {

@@ -74,6 +74,14 @@
     </div>
     <div id="worktime">
       <p class="title" id="worktime-title">Total Workingtime</p>
+      <p id="total-worktime">
+        {{
+          ~~(worktime.map((part) => part[0]).reduce((a, b) => a + b, 0) / 60) +
+          "h  " +
+          (worktime.map((part) => part[0]).reduce((a, b) => a + b, 0) % 60) +
+          "m"
+        }}
+      </p>
       <div id="times">
         <div id="time" v-for="time in worktime">
           <div id="time-part">{{ time[1].toUpperCase() }}</div>
@@ -84,7 +92,7 @@
             }"
             id="time-block"
           >
-            {{ time[0] }}
+            {{ ~~(time[0] / 60) + "h  " + (time[0] % 60) + "m" }}
           </div>
         </div>
       </div>
@@ -591,18 +599,26 @@ onMounted(async () => {
 
   #worktime-title {
     margin-top: 5vh;
-    margin-bottom: 15vh;
+    margin-bottom: 10vh;
+  }
+
+  #total-worktime {
+    margin-bottom: 5vh;
+    font-size: 30px;
+    font-weight: 600;
   }
 
   #times {
     #time {
       #time-part {
         margin: 10px 0;
+        font-weight: 600;
       }
 
       #time-block {
         height: 30px;
         padding: 5px;
+        padding-left: 10px;
         display: flex;
         align-items: center;
         font-weight: 600;

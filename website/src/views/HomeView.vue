@@ -666,7 +666,7 @@ onMounted(async () => {
 }
 
 #worktime {
-  margin: 10vh 0;
+  margin-top: 10vh;
   display: flex;
   align-items: center;
   flex-direction: column;

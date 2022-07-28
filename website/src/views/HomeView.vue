@@ -65,9 +65,9 @@
     <div id="utensils">
       <p class="title">The technologies used in the project:</p>
       <div id="logos">
-        <div id="logo" v-for="logo in logos">
-          <img :src="logo" alt="logo" />
-        </div>
+        <a id="logo" target="_blank" :href="logo[1]" v-for="logo in logos">
+          <img :src="logo[0]" alt="logo" />
+        </a>
       </div>
     </div>
     <div id="worktime">
@@ -137,13 +137,34 @@ const workingtime = ref({
 });
 
 const logos = [
-  "http://assets.stickpng.com/images/62c6bc0beee9410fe137d91e.png",
-  "https://freelance-france.com/wp-content/uploads/2021/10/Image1-1.png",
-  "https://upload.wikimedia.org/wikipedia/commons/b/bd/Firebase_Logo.png",
-  "https://positivethinking.tech/wp-content/uploads/2021/01/Logo-Vuejs.png",
-  "https://developers.pendo.io/wp-content/uploads/2020/11/react-native.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png",
-  "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png",
+  [
+    "http://assets.stickpng.com/images/62c6bc0beee9410fe137d91e.png",
+    "https://www.figma.com/file/5ppSR97yM4pK5sLy3rH1S8/Untitled?node-id=0%3A1",
+  ],
+  [
+    "https://freelance-france.com/wp-content/uploads/2021/10/Image1-1.png",
+    "https://code.visualstudio.com/",
+  ],
+  [
+    "https://upload.wikimedia.org/wikipedia/commons/b/bd/Firebase_Logo.png",
+    "https://firebase.google.com/",
+  ],
+  [
+    "https://positivethinking.tech/wp-content/uploads/2021/01/Logo-Vuejs.png",
+    "https://vuejs.org/",
+  ],
+  [
+    "https://developers.pendo.io/wp-content/uploads/2020/11/react-native.png",
+    "https://reactnative.dev/",
+  ],
+  [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png",
+    "https://google.com",
+  ],
+  [
+    "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png",
+    "https://github.com/MerlinMinder/matura",
+  ],
 ];
 
 const types = {
@@ -629,6 +650,11 @@ onMounted(async () => {
       display: flex;
       align-items: center;
       background-color: #666666;
+
+      a {
+        width: fit-content;
+        height: fit-content;
+      }
 
       img {
         width: 150px;

@@ -51,15 +51,10 @@
         </div>
       </div>
       <div id="timeline-parts">
-        <p>08.07.2022 Kickoff of the project</p>
-        <p>11.07.2022 - 18.07.2022 Website creation</p>
-        <p>19.07.2022 - 21.08.2022 Design idea gathering + website styling</p>
-        <p>22.08.2022 - 11.09.2022 Designing app on Figma</p>
-        <p>12.09.2022 - 16.10.2022 Programming the UI</p>
-        <p>17.10.2022 - 13.11.2022 Programming the functionalities</p>
-        <p>14.11.2022 - 27.11.2022 Debugging and testing</p>
-        <p>28.11.2022 Finalisation of the project</p>
-        <p>05.12.2022 Official deadline</p>
+        <div id="part" v-for="part in parts">
+          <div id="part-color" :style="{ 'background-color': part[0] }"></div>
+          <div>{{ part[1] }}</div>
+        </div>
       </div>
     </div>
     <div id="utensils">
@@ -143,33 +138,6 @@ const workingtime = ref({
   posts: 0,
 });
 
-const logos = [
-  [
-    "https://freelance-france.com/wp-content/uploads/2021/10/Image1-1.png",
-    "https://code.visualstudio.com/",
-  ],
-  [
-    "https://upload.wikimedia.org/wikipedia/commons/b/bd/Firebase_Logo.png",
-    "https://firebase.google.com/",
-  ],
-  [
-    "https://positivethinking.tech/wp-content/uploads/2021/01/Logo-Vuejs.png",
-    "https://vuejs.org/",
-  ],
-  [
-    "https://developers.pendo.io/wp-content/uploads/2020/11/react-native.png",
-    "https://reactnative.dev/",
-  ],
-  [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png",
-    "https://google.com",
-  ],
-  [
-    "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png",
-    "https://github.com/MerlinMinder/matura",
-  ],
-];
-
 const types = {
   none: "gray",
   kickoff: "#ff0000",
@@ -180,7 +148,7 @@ const types = {
   func: "#aa00ff",
   debug: "#ff00aa",
   finalasiation: "#ff0000",
-  deadline: "black",
+  deadline: "#000000",
 };
 
 const holidays = {
@@ -385,6 +353,44 @@ const calendar = [
     { day: 29, type: types.none, holiday: holidays.holiday },
     { day: 30, type: types.none, holiday: holidays.holiday },
     { day: 31, type: types.none, holiday: holidays.holiday },
+  ],
+];
+
+const parts = [
+  ["#ff0000", "Kickoff / Finalization"],
+  ["#ffaa00", "Website Creation"],
+  ["#00ff00", "Design Ideas, Website Styling"],
+  ["#00aaff", "Figma App Design"],
+  ["#0000ff", "Programming the UI"],
+  ["#aa00ff", "Programming Functionalities"],
+  ["#ff00aa", "Debugging and Testing"],
+  ["#000000", "Matura Deadline"],
+];
+
+const logos = [
+  [
+    "https://freelance-france.com/wp-content/uploads/2021/10/Image1-1.png",
+    "https://code.visualstudio.com/",
+  ],
+  [
+    "https://upload.wikimedia.org/wikipedia/commons/b/bd/Firebase_Logo.png",
+    "https://firebase.google.com/",
+  ],
+  [
+    "https://positivethinking.tech/wp-content/uploads/2021/01/Logo-Vuejs.png",
+    "https://vuejs.org/",
+  ],
+  [
+    "https://developers.pendo.io/wp-content/uploads/2020/11/react-native.png",
+    "https://reactnative.dev/",
+  ],
+  [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png",
+    "https://google.com",
+  ],
+  [
+    "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png",
+    "https://github.com/MerlinMinder/matura",
   ],
 ];
 
@@ -631,6 +637,21 @@ onMounted(async () => {
         border-radius: 5px;
         box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.5),
           inset -2px -2px 3px rgba(230, 230, 230, 0.5);
+      }
+    }
+  }
+
+  #timeline-parts {
+    #part {
+      margin: 15px;
+      display: flex;
+      align-items: center;
+
+      #part-color {
+        height: 20px;
+        width: 30px;
+        border-radius: 10px;
+        margin-right: 20px;
       }
     }
   }

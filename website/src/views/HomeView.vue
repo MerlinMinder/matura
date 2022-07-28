@@ -426,21 +426,6 @@ onMounted(async () => {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  overflow-x: hidden;
-  padding: 0px 10vw;
-}
-
-.title {
-  font-size: 38px;
-  background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  width: fit-content;
-  margin-bottom: 10vh;
-}
-
 #imgtitle {
   display: flex;
   justify-content: center;
@@ -520,249 +505,264 @@ onMounted(async () => {
   }
 }
 
-#about {
-  padding: 10vw 10vw;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.container {
+  overflow-x: hidden;
+  padding: 0px 10vw;
 
-  #about-text {
-    margin: 0 8vw;
-    padding: 2vw;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.5;
-    border-radius: 15px;
-    box-shadow: inset -8px -8px 12px rgba(151, 151, 151, 0.5),
-      inset 8px 8px 12px rgba(0, 0, 0, 0.5);
-  }
-
-  #about-ques {
-    text-align: center;
-    font-size: 20px;
-    margin: 10vh 0px;
-  }
-
-  #about-objective {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 1000;
+  .title {
+    font-size: 38px;
     background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin: 5vh 0px;
-    padding: 10px;
-    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5),
-      -5px -5px 7px rgba(150, 150, 150, 0.5);
-    border-radius: 12px;
-  }
-}
-
-#timeline {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  p {
-    margin: 10px;
-  }
-
-  #timeline-title {
-    margin-bottom: 50px;
-  }
-
-  #calendar {
-    display: flex;
-    flex-direction: row;
-    margin: 8vh 0;
-    flex-wrap: wrap;
-    width: 60vw;
-    justify-content: space-evenly;
-
-    p {
-      position: absolute;
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    #july {
-      margin-top: 0;
-      left: 28vw;
-    }
-
-    #august {
-      margin-top: 0;
-    }
-
-    #september {
-      margin-top: 0;
-      right: 26vw;
-    }
-
-    #october {
-      margin-top: 35vh;
-      left: 27vw;
-    }
-
-    #november {
-      margin-top: 35vh;
-    }
-
-    #december {
-      margin-top: 35vh;
-      right: 26.5vw;
-    }
-
-    #month {
-      border-radius: 10px;
-      padding: 20px;
-      margin: 30px 0;
-      width: 235px;
-      height: fit-content;
-      display: flex;
-      flex-wrap: wrap;
-
-      justify-content: flex-start;
-      box-shadow: inset 6px 6px 8px rgba(153, 153, 153, 0.5),
-        inset -6px -6px 8px rgba(0, 0, 0, 0.5);
-
-      #day {
-        height: 30px;
-        width: 30px;
-        margin: 1.5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 600;
-        border-radius: 5px;
-        box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.5),
-          inset -2px -2px 3px rgba(230, 230, 230, 0.5);
-      }
-    }
-  }
-
-  #timeline-parts {
-    #part {
-      margin: 15px;
-      display: flex;
-      align-items: center;
-
-      #part-color {
-        height: 20px;
-        width: 30px;
-        border-radius: 10px;
-        margin-right: 20px;
-      }
-    }
-  }
-}
-
-#utensils {
-  margin: 10vh 0;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-
-  #logos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 770px;
-
-    .logo {
-      margin: 10px;
-      display: flex;
-      align-items: center;
-      background-color: #666666;
-
-      a {
-        width: fit-content;
-        height: fit-content;
-      }
-
-      img {
-        width: 150px;
-        padding: 0 10px;
-        background-color: #666666;
-      }
-    }
-  }
-}
-
-#worktime {
-  margin-top: 10vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  #worktime-title {
-    margin-top: 5vh;
+    text-align: center;
+    width: fit-content;
     margin-bottom: 10vh;
   }
 
-  #total-worktime {
-    margin-bottom: 5vh;
-    font-size: 30px;
-    font-weight: 600;
-  }
+  #about {
+    padding: 10vw 10vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
-  #times {
-    #time {
-      #time-part {
-        margin: 10px 0;
-        font-weight: 600;
-      }
-
-      #time-block {
-        height: 30px;
-        padding: 5px;
-        padding-left: 10px;
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        border-radius: 10px;
-        box-shadow: inset 4px 4px 6px rgba(153, 153, 153, 0.5),
-          inset -4px -4px 6px rgba(0, 0, 0, 0.5);
-      }
-    }
-  }
-}
-
-#posts {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  #post-title {
-    margin-top: 10vh;
-    margin-bottom: 5vh;
-  }
-
-  #post {
-    padding: 30px;
-    border-radius: 10px;
-    margin: 10vh 2vw;
-    box-shadow: inset -5px -5px 8px rgba(0, 0, 0, 0.5),
-      inset 5px 5px 8px rgba(150, 150, 150, 0.5), 5px 5px 8px rgba(0, 0, 0, 0.5),
-      -5px -5px 8px rgba(150, 150, 150, 0.5);
-
-    #post-time {
-      margin-bottom: 30px;
-      font-size: 22px;
+    #about-text {
+      margin: 0 8vw;
+      padding: 2vw;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      border-radius: 15px;
+      box-shadow: inset -8px -8px 12px rgba(151, 151, 151, 0.5),
+        inset 8px 8px 12px rgba(0, 0, 0, 0.5);
     }
 
-    #post-worktext {
-      width: fit-content;
-      font-weight: 800;
-      margin: 20px 0px;
+    #about-ques {
+      text-align: center;
+      font-size: 20px;
+      margin: 10vh 0px;
+    }
+
+    #about-objective {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 1000;
       background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin: 5vh 0px;
+      padding: 10px;
+      box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5),
+        -5px -5px 7px rgba(150, 150, 150, 0.5);
+      border-radius: 12px;
+    }
+  }
+
+  #timeline {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      margin: 10px;
     }
 
-    #post-worktime {
-      margin-bottom: 10px;
-      white-space: pre-wrap;
+    #timeline-title {
+      margin-bottom: 50px;
+    }
+
+    #calendar {
+      display: flex;
+      flex-direction: row;
+      margin: 8vh 0;
+      flex-wrap: wrap;
+      width: 60vw;
+      justify-content: space-evenly;
+
+      p {
+        position: absolute;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      #july {
+        margin-top: 0;
+        left: 28vw;
+      }
+
+      #august {
+        margin-top: 0;
+      }
+
+      #september {
+        margin-top: 0;
+        right: 26vw;
+      }
+
+      #october {
+        margin-top: 35vh;
+        left: 27vw;
+      }
+
+      #november {
+        margin-top: 35vh;
+      }
+
+      #december {
+        margin-top: 35vh;
+        right: 26.5vw;
+      }
+
+      #month {
+        border-radius: 10px;
+        padding: 20px;
+        margin: 30px 0;
+        width: 235px;
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: flex-start;
+        box-shadow: inset 6px 6px 8px rgba(153, 153, 153, 0.5),
+          inset -6px -6px 8px rgba(0, 0, 0, 0.5);
+
+        #day {
+          height: 30px;
+          width: 30px;
+          margin: 1.5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 600;
+          border-radius: 5px;
+          box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.5),
+            inset -2px -2px 3px rgba(230, 230, 230, 0.5);
+        }
+      }
+    }
+
+    #timeline-parts {
+      #part {
+        margin: 15px;
+        display: flex;
+        align-items: center;
+
+        #part-color {
+          height: 20px;
+          width: 30px;
+          border-radius: 10px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  #utensils {
+    margin: 10vh 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    #logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 770px;
+
+      .logo {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        background-color: #666666;
+
+        a {
+          width: fit-content;
+          height: fit-content;
+        }
+
+        img {
+          width: 150px;
+          padding: 0 10px;
+          background-color: #666666;
+        }
+      }
+    }
+  }
+
+  #worktime {
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    #worktime-title {
+      margin-top: 5vh;
+      margin-bottom: 10vh;
+    }
+
+    #total-worktime {
+      margin-bottom: 5vh;
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    #times {
+      #time {
+        #time-part {
+          margin: 10px 0;
+          font-weight: 600;
+        }
+
+        #time-block {
+          height: 30px;
+          padding: 5px;
+          padding-left: 10px;
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          border-radius: 10px;
+          box-shadow: inset 4px 4px 6px rgba(153, 153, 153, 0.5),
+            inset -4px -4px 6px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+
+  #posts {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    #post-title {
+      margin-top: 10vh;
+      margin-bottom: 5vh;
+    }
+
+    #post {
+      padding: 30px;
+      border-radius: 10px;
+      margin: 10vh 2vw;
+      box-shadow: inset -5px -5px 8px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 8px rgba(150, 150, 150, 0.5),
+        5px 5px 8px rgba(0, 0, 0, 0.5), -5px -5px 8px rgba(150, 150, 150, 0.5);
+
+      #post-time {
+        margin-bottom: 30px;
+        font-size: 22px;
+      }
+
+      #post-worktext {
+        width: fit-content;
+        font-weight: 800;
+        margin: 20px 0px;
+        background: linear-gradient(90deg, #42ffff 0%, #ffc042 95.24%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      #post-worktime {
+        margin-bottom: 10px;
+        white-space: pre-wrap;
+      }
     }
   }
 }

@@ -65,7 +65,14 @@
     <div id="utensils">
       <p class="title">The technologies used in the project:</p>
       <div id="logos">
-        <a id="logo" target="_blank" :href="logo[1]" v-for="logo in logos">
+        <a
+          class="logo"
+          target="_blank"
+          href="https://www.figma.com/file/5ppSR97yM4pK5sLy3rH1S8/Untitled?node-id=0%3A1"
+        >
+          <img src="../assets/figma-logo.png" alt="logo" />
+        </a>
+        <a class="logo" target="_blank" :href="logo[1]" v-for="logo in logos">
           <img :src="logo[0]" alt="logo" />
         </a>
       </div>
@@ -137,10 +144,6 @@ const workingtime = ref({
 });
 
 const logos = [
-  [
-    "/src/assets/figma-logo.png",
-    "https://www.figma.com/file/5ppSR97yM4pK5sLy3rH1S8/Untitled?node-id=0%3A1",
-  ],
   [
     "https://freelance-france.com/wp-content/uploads/2021/10/Image1-1.png",
     "https://code.visualstudio.com/",
@@ -645,7 +648,7 @@ onMounted(async () => {
     flex-wrap: wrap;
     width: 770px;
 
-    #logo {
+    .logo {
       margin: 10px;
       display: flex;
       align-items: center;

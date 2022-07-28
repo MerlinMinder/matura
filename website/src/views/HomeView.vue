@@ -138,7 +138,7 @@ const workingtime = ref({
 
 const logos = [
   [
-    "http://assets.stickpng.com/images/62c6bc0beee9410fe137d91e.png",
+    "/src/assets/figma-logo.png",
     "https://www.figma.com/file/5ppSR97yM4pK5sLy3rH1S8/Untitled?node-id=0%3A1",
   ],
   [

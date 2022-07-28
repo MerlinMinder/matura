@@ -71,7 +71,7 @@
       </div>
     </div>
     <div id="worktime">
-      <p class="title" id="worktime-title">Total Workingtime</p>
+      <p class="title" id="worktime-title">Total Worktime</p>
       <p id="total-worktime">
         {{
           ~~(worktime.map((part) => part[0]).reduce((a, b) => a + b, 0) / 60) +
@@ -104,7 +104,17 @@
           </div>
           <div id="post-body" v-html="post.data"></div>
           <p id="post-worktext">Worktime</p>
-          <p id="post-worktime">{{ post.worktime }}</p>
+          <p id="post-worktime">
+            {{
+              post.worktime[0][1].toUpperCase() +
+              ": " +
+              post.worktime[0][0] +
+              "\n" +
+              post.worktime[1][1].toUpperCase() +
+              ": " +
+              post.worktime[1][0]
+            }}
+          </p>
         </div>
       </div>
     </div>
@@ -372,6 +382,16 @@ onMounted(async () => {
     worktime.value.push([workingtime.value[key], key]);
   }
   worktime.value.sort().reverse();
+  posts.value.forEach((post) => {
+    const work = [];
+    for (let key in post.worktime) {
+      if (post.worktime[key] > 0) {
+        work.push([post.worktime[key], key]);
+      }
+    }
+    work.sort().reverse();
+    post.worktime = work;
+  });
 });
 </script>
 
@@ -692,6 +712,7 @@ onMounted(async () => {
 
     #post-worktime {
       margin-bottom: 10px;
+      white-space: pre-wrap;
     }
   }
 }

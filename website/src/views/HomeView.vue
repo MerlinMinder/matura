@@ -88,7 +88,7 @@
           <div
             :style="{
               width: String(time[0]) + 'px',
-              'background-color': '#' + time[0].toString(19).padStart(3, '0'),
+              'background-color': '#' + time[0].toString(16).padStart(3, '0'),
             }"
             id="time-block"
           >

@@ -392,6 +392,10 @@ const logos = [
     "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png",
     "https://github.com/MerlinMinder/matura",
   ],
+  [
+    "https://res.cloudinary.com/practicaldev/image/fetch/s--5N472VlU--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://repository-images.githubusercontent.com/65750241/79017180-d4ce-11e9-9955-3f0a7be00c7a",
+    "https://docs.expo.dev/",
+  ],
 ];
 
 onMounted(async () => {

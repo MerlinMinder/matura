@@ -1,13 +1,19 @@
 import * as React from "react";
-import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import { SafeAreaView, StyleSheet, StatusBar, View } from "react-native";
 import { useFonts } from "expo-font";
 import GradientText from "./GradientText.";
+
+const BG1 = "#3C3C3C";
+const BG2 = "#464646";
+const SW1 = "rgba(0, 0, 0, 0.5)";
+const SW2 = "rgba(128, 128, 128, 0.5)";
 
 export default function App() {
   // load the WorkSans fonts
   const [fontsLoaded] = useFonts({
     "WorkSans-Regular": require("./assets/fonts/WorkSans-Regular.ttf"),
     "WorkSans-SemiBold": require("./assets/fonts/WorkSans-SemiBold.ttf"),
+    "WorkSans-Bold": require("./assets/fonts/WorkSans-Bold.ttf"),
   });
   if (!fontsLoaded) {
     return null;
@@ -15,11 +21,24 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor="#3C3C3C" />
-      <GradientText style={styles.progress} text="PROGRESS" />
-      {/* Added copy for second shadow */}
-      <GradientText style={styles.progressShadow} text="PROGRESS" />
-      <GradientText style={styles.fit} text="FIT" />
+      <StatusBar backgroundColor={BG1} />
+
+      {/* Title */}
+      <View style={styles.title}>
+        <View style={styles.progresspos}>
+          <GradientText style={styles.progress} text="PROGRESS" />
+        </View>
+        <View style={styles.progresspos}>
+          {/* Added copy for second shadow */}
+          <GradientText style={styles.progressShadow} text="PROGRESS" />
+        </View>
+        <View style={styles.fitpos}>
+          <GradientText style={styles.fit} text="FIT" />
+        </View>
+      </View>
+
+      {/* Calendar */}
+      <View style={styles.calendar}></View>
     </SafeAreaView>
   );
 }
@@ -27,9 +46,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#3C3C3C",
     alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: BG1,
+  },
+  title: { top: 5, height: 40, width: 340 },
+  progresspos: {
+    position: "absolute",
+    width: 182,
+    height: 40,
+  },
+  fitpos: {
+    position: "absolute",
+    left: 180,
+    width: 53,
+    height: 40,
   },
   progress: {
     color: "white",
@@ -61,4 +91,15 @@ const styles = StyleSheet.create({
     fontSize: 34,
     lineHeight: 40,
   },
+  calendar: {
+    width: 300,
+    height: 330,
+    backgroundColor: BG2,
+    borderRadius: 15,
+    top: 40,
+    shadowColor: SW1,
+    shadowOffset: { width: 10, height: 10 },
+    shadowRadius: 15,
+  },
+  calendarShadow: {},
 });

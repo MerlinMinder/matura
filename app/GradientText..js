@@ -9,6 +9,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export default GradientText = (props) => {
   return (
+    // part to mask the gradient below to only show the text with the gradient
     <MaskedView
       maskElement={
         <Text style={[props.style, { backgroundColor: "transparent" }]}>
@@ -16,11 +17,13 @@ export default GradientText = (props) => {
         </Text>
       }
     >
+      {/* the gradient with hardcoded colors since these are the only ones needed */}
       <LinearGradient
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         colors={["#42FFFF", "#FFC042"]}
       >
+        {/* The text that recieves the gradient */}
         <Text style={[props.style, { opacity: 0 }]}>{props.text}</Text>
       </LinearGradient>
     </MaskedView>

@@ -3,8 +3,7 @@ import { Text } from "react-native";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
 
-// thanks to Harshal for writing this part on stackoverflow
-// I had to change the LinearGradient component since the original package it was from didn't work on Expo
+// Inspiration came from:
 // https://stackoverflow.com/questions/51248255/how-to-create-a-gradient-text-in-react-native
 
 export default GradientText = (props) => {

@@ -1,12 +1,12 @@
-import * as React from "react";
-import { SafeAreaView, StyleSheet, StatusBar, View } from "react-native";
-import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, SafeAreaView, View } from "react-native";
+import React from "react";
 import GradientText from "./GradientText.";
+import { Neomorphism } from "./Neomorphism";
+import { useFonts } from "expo-font";
 
 const BG1 = "#3C3C3C";
 const BG2 = "#464646";
-const SW1 = "rgba(0, 0, 0, 0.5)";
-const SW2 = "rgba(128, 128, 128, 0.5)";
 
 export default function App() {
   // load the WorkSans fonts
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: BG1,
   },
-  title: { top: 5, height: 40, width: 340 },
+  title: { top: 20, height: 40, width: 340 },
   progresspos: {
     position: "absolute",
     width: 182,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   fitpos: {
     position: "absolute",
     left: 180,
-    width: 53,
+    width: 60,
     height: 40,
   },
   progress: {
@@ -97,9 +97,5 @@ const styles = StyleSheet.create({
     backgroundColor: BG2,
     borderRadius: 15,
     top: 40,
-    shadowColor: SW1,
-    shadowOffset: { width: 10, height: 10 },
-    shadowRadius: 15,
   },
-  calendarShadow: {},
 });

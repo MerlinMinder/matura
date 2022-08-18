@@ -1,47 +1,72 @@
-import React, { useMemo } from "react";
-import {
-  FitBox,
-  Path,
-  Paint,
-  Box,
-  Canvas,
-  Fill,
-  vec,
-  rrect,
-  rect,
-  Shadow,
-  BoxShadow,
-} from "@shopify/react-native-skia";
-import { useWindowDimensions } from "react-native";
+import React from "react";
+import { Canvas, Fill, RoundedRect, Shadow } from "@shopify/react-native-skia";
+import { View } from "react-native";
 
-export const Neomorphism = () => {
-  const { width } = useWindowDimensions();
-  const r = 150;
+export const Neomorphism = (props) => {
+  // values to calculate padding for the shadows
+  const X = (props.x + props.b) * 1.5;
+  const Y = (props.y + props.b) * 1.5;
 
-  const rct = useMemo(() => {
-    const c = vec(width / 2, r);
-    return rrect(rect(c.x - r, c.y - r, 2 * r, 2 * r), r, r);
-  }, [width]);
+  // dropshadow = false, inset = true
+  const inset = props.inset || false;
 
-  const dx = 10;
-  const dy = 10;
   return (
-    <Canvas style={{ flex: 1 }} mode="continuous" debug>
-      <Fill color="lightblue" />
-      <Box box={rct} color="white">
-        <BoxShadow dx={-dx} dy={-dy} blur={15} color="blue" />
-        <BoxShadow dx={dx} dy={dy} blur={15} color="green" inner />
-      </Box>
-      <FitBox src={rect(0, 0, 24, 24)} dst={rect(50, 350, 300, 300)}>
-        <Paint>
-          <Shadow dx={1} dy={1} blur={1} color="red" inner />
-          <Shadow dx={1} dy={1} blur={1} color="blue" />
-        </Paint>
-        <Path
-          path="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"
-          color="white"
-        />
-      </FitBox>
-    </Canvas>
+    <View
+      style={{
+        // same size as canvas to not add children outside
+        width: inset ? props.width : props.width + X * 2,
+        height: inset ? props.height : props.height + Y * 2,
+      }}
+    >
+      {/* Background and shadows */}
+      <Canvas
+        style={{
+          // adjust size to inset , dropshadow with padding
+          width: inset ? props.width : props.width + X * 2,
+          height: inset ? props.height : props.height + Y * 2,
+        }}
+      >
+        <Fill color="transparent" />
+        <RoundedRect
+          x={inset ? 0 : X}
+          y={inset ? 0 : Y}
+          width={props.width}
+          height={props.height}
+          r={props.r}
+          color={props.colorB}
+        >
+          <Shadow
+            dx={props.x}
+            dy={props.y}
+            blur={props.b}
+            color={props.colorS1}
+            inner={inset}
+          />
+          <Shadow
+            dx={-props.x}
+            dy={-props.y}
+            blur={props.b}
+            color={props.colorS2}
+            inner={inset}
+          />
+        </RoundedRect>
+      </Canvas>
+
+      {/* object to include children */}
+      <View
+        style={[
+          props.style,
+          {
+            // move children frame to top left of canvas
+            width: props.width,
+            height: props.height,
+            top: inset ? -props.height : -props.height - Y,
+            left: inset ? 0 : X,
+          },
+        ]}
+      >
+        {props.children}
+      </View>
+    </View>
   );
 };

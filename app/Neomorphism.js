@@ -14,8 +14,16 @@ export const Neomorphism = (props) => {
     <View
       style={{
         // same size as canvas to not add children outside
-        width: inset ? props.width : props.width + X * 2,
-        height: inset ? props.height : props.height + Y * 2,
+        width: inset
+          ? props.width
+          : props.padx
+          ? props.width + props.padx
+          : props.width + X * 2,
+        height: inset
+          ? props.height
+          : props.pady
+          ? props.width + props.pady
+          : props.height + Y * 2,
       }}
     >
       {/* Background and shadows */}

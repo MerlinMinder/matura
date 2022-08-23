@@ -14,7 +14,6 @@ let SCALE = 1;
 export default function App() {
   // setting scale from design to phone size
   SCALE = 375 / Dimensions.get("screen").width;
-  window.scale = SCALE;
 
   // load the WorkSans fonts
   const [fontsLoaded] = useFonts({

@@ -17,11 +17,7 @@ export default GradientText = (props) => {
       }
     >
       {/* the gradient with hardcoded colors since these are the only ones needed */}
-      <LinearGradient
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        colors={["#42FFFF", "#FFC042"]}
-      >
+      <LinearGradient colors={["#42FFFF", "#FFC042"]} end={{ x: 1, y: 1 }}>
         {/* The text that recieves the gradient */}
         <Text style={[props.style, { opacity: 0 }]}>{props.text}</Text>
       </LinearGradient>

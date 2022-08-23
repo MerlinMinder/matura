@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Neomorphism } from "../Neomorphism";
 import Svg, { Path } from "react-native-svg";
+import { Week } from "./parts/Week";
+import { Weektitle } from "./parts/Weektitle";
 
-let SCALE = window.scale;
+let SCALE = 1;
 
 export const Calendar = (props) => {
-  SCALE = props.scale;
   const BG2 = props.bg2;
+  SCALE = props.scale;
+
+  const initarr = [1, 2, 3, 4, 5];
 
   return (
     <Neomorphism
@@ -29,6 +33,7 @@ export const Calendar = (props) => {
       colorS2="rgba(128, 128, 128, 0.7)"
       colorB={BG2}
     >
+      {/* title / month selector */}
       <View style={styles.title}>
         <View style={styles.arrow}>
           <Svg
@@ -60,6 +65,18 @@ export const Calendar = (props) => {
           </Svg>
         </View>
       </View>
+
+      {/* weektitles */}
+      <Weektitle scale={SCALE} bg2={BG2} />
+
+      {/* Weeks mapped out containing days */}
+      {initarr.map((ia) => {
+        return (
+          <View key={ia} style={{ marginTop: 5 / SCALE }}>
+            <Week scale={SCALE} bg2={BG2}></Week>
+          </View>
+        );
+      })}
     </Neomorphism>
   );
 };

@@ -1,9 +1,11 @@
 import GradientText from "../GradientText";
 import { StyleSheet, View } from "react-native";
 
-let SCALE = window.scale;
+let SCALE = 1;
 
-export const Title = () => {
+export const Title = (props) => {
+  SCALE = props.scale;
+
   return (
     <View style={styles.title}>
       <View style={styles.progresspos}>
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
     height: 40 / SCALE,
   },
   progress: {
-    color: "white",
     fontFamily: "WorkSans-Regular",
     fontStyle: "normal",
     fontWeight: "300",
@@ -50,7 +51,6 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
   },
   progressShadow: {
-    color: "white",
     fontFamily: "WorkSans-Regular",
     fontStyle: "normal",
     fontWeight: "300",
@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
   },
   fit: {
-    color: "white",
     fontFamily: "WorkSans-SemiBold",
     fontStyle: "normal",
     fontWeight: "600",
